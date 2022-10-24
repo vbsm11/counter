@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {ButtonInc} from "./components/ButtonInc";
+import {Scoreboard} from "./components/Scoreboard";
+import {ButtonReset} from "./components/ButtonReset";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const start = 0;
+    const finish = 5;
+
+    const [number, setNumber] = useState<number>(start);
+
+    const numberInc = () => {
+        setNumber(number + 1);
+    }
+
+    const numberReset = () => {
+        setNumber(start);
+    }
+
+    return (
+        <div className="App">
+            <Scoreboard
+                number={number}
+                finish={finish}
+            />
+            <div className='buttons'>
+                <ButtonInc
+                    numberInc={numberInc}
+                    number={number}
+                    finish={finish}
+                />
+                <ButtonReset
+                    numberReset={numberReset}
+                    number={number}
+                    start={start}/>
+            </div>
+        </div>
+    );
 }
 
 export default App;

@@ -3,11 +3,15 @@ import React from 'react';
 type ButtonIncPropsType = {
     numberInc: () => void
     number: number
+    finish: number
 }
 
 export function ButtonInc(props: ButtonIncPropsType) {
 
     return (
-        <button disabled={props.number===5} onClick={props.numberInc}>inc</button>
+        <button
+            className='button'
+            disabled={props.number===props.finish}
+            onClick={props.numberInc}>inc</button>
     );
 }

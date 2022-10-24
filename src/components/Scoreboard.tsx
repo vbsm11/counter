@@ -1,12 +1,15 @@
 import React from 'react';
-import s from './Scoreboard.module.css'
+import './../App.css';
 
 type ScoreboardPropsType = {
     number: number
+    finish: number
 }
 
 export function Scoreboard(props: ScoreboardPropsType) {
     return (
-        <div className={props.number===5? {s.err} : ''}>{props.number}</div>
+        <div className={props.number===props.finish? 'err scoreboard' : 'scoreboard'}>
+            {props.number}
+        </div>
     );
 }

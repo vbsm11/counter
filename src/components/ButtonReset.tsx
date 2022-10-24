@@ -3,11 +3,15 @@ import React from 'react';
 type ButtonResetPropsType = {
     numberReset: () => void
     number: number
+    start: number
 }
 
 export function ButtonReset(props: ButtonResetPropsType) {
 
     return (
-        <button disabled={props.number===0} onClick={props.numberReset}>reset</button>
+        <button
+            className='button'
+            disabled={props.number===props.start}
+            onClick={props.numberReset}>reset</button>
     );
 }
